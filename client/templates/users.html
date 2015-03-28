@@ -1,0 +1,16 @@
+<template name="users">
+  <div class="page users">
+    {{> nav title='Users' subtext=usersCount}}
+
+    <div class="content-scrollable">
+      <div class="list-users">
+        {{#each users}}
+          <div class="user">
+            <img src={{profile.avatar}} alt="Profilbild"/>
+            <span >{{profile.name}}</span>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</template>

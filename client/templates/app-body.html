@@ -1,0 +1,49 @@
+<template name="appBody">
+  <div class="wrapper-welcome">
+    <div class="title-welcome">Push 'em</div>
+    <div class="description-welcome">
+    Push 'em real good
+    </div>
+  </div>
+
+  <div id="container" class="{{menuOpen}} {{overlayOpen}}">
+    <section id="menu" class="overthrow">
+      <a href="{{pathFor 'pushem'}}" class="{{activePage 'pushem'}}">
+        <span class="wrapper-menu-item">
+          <span class="icon-home"></span>
+          <span class="title-menu">Push 'em</span>
+        </span>
+      </a>
+      <a href="{{pathFor 'users'}}" class="{{activePage 'users'}}">
+        <span class="wrapper-menu-item">
+          <span class="icon-user"></span>
+          <span class="title-menu">Users</span>
+        </span>
+      </a>
+    </section>
+
+    <div class="notifications">
+      {{#unless connected}}
+        <div class="notification">
+          <span class="icon-sync"></span>
+          <div class="title-notification">Trying to connect</div>
+        </div>
+      {{/unless}}
+      {{#each notifications}}
+        <div class="notification">
+          <a class="btn-primary js-notification-action">{{action}}</a>
+          <div class="title-notification">{{title}}</div>
+        </div>
+      {{/each}}
+    </div>
+
+    {{> overlay}}
+
+    <div class="content-overlay"></div>
+
+    <div id="content-container">
+      {{> yield}}
+    </div>
+
+  </div>
+</template>
